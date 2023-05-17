@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>jQuery validation</title>
+</head>
+<body>
+
+    <div class="container-sm mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>jQuery validation Form</h2>
+            </div>
+            <div class="card-body">
+                <form action="" name="form" id="form">
+                    <div class="mb-3">
+                        <input type="text" name="firstName" id="firstName"
+                        placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="lastName" id="lastName"
+                        placeholder="Last Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="userName" id="userName"
+                        placeholder="User Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="phoneNumber" id="phoneNumber"
+                        placeholder="Phone Number" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="email" id="email"
+                        placeholder="Email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="password" id="password"
+                        placeholder="Password" class="form-control">
+                    </div>
+                    <input type="submit" class="btn btn-outline-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+
+    <script>
+
+        $().ready(() => {
+
+            $('#form').validate({
+
+                rules: {
+
+                    firstName:{ required: true, minlength: 3 },
+                    lastName:{ required: true, minlength: 3 },
+                    phoneNumber:{ required: true, minlength: 7, maxlength: 10 },
+                    email:{ required: true, email: true },
+                    password:{ required: true, minlength: 8 }
+
+                },
+
+                messages: {
+
+                    firstName:{
+                        required: "Enter the first name",
+                        minlength: "Enter at least 3 characters"
+                    },
+                    lastName:{
+                        required: "Enter the last name",
+                        minlength: "Enter at least 3 characters"
+                    },
+                    phoneNumber:{
+                        required: "Enter the phone number",
+                        minlength: "Enter at least 7 characters",
+                        maxlength: "Not more than 10 characters"
+                    },
+                    email:{
+                        required: "Enter the email",
+                        email: "Must be a valid e-mail address",
+                    },
+                    password:{
+                        required: "Enter the password",
+                        minlength: "Enter at least 8 characters",
+                    }
+
+                }
+
+            });
+
+        });
+
+        $('#userName').focus(() => {
+
+            let firstName = $('#firstName').val();
+            let lastName = $('#lastName').val();
+
+            if(firstName && lastName && !this.value) {
+                this.value = firstName + "." + lastName;
+                $('#userName').prop('readonly', true); 
+            }
+
+        });
+
+    </script>
+</body>
+</html>

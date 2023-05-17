@@ -1,0 +1,28 @@
+<!-- Registro de usuario -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Register User jquery</title>
+</head>
+<body>
+
+  <form id="form-register" class="form-register" onsubmit="return validation()">
+      <h4 id="hola">jQuery!</h4>
+      <input class="controls" type="text" name="name" id="name" placeholder="User name">
+      <input class="controls" type="text" name="email" id="email" placeholder="Email">
+      <input class="controls" type="text" name="number" id="number" placeholder="Phone number">
+      <input class="controls" type="date" name="date" id="date" placeholder="Date">
+      <input class="controls" type="password" name="password" id="password" placeholder="Password">
+      <input class="botons" type="submit" value="Register">
+  </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="./validations.js"></script>
+</body>
+</html>
